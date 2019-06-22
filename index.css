@@ -7,7 +7,8 @@ main {
   flex-direction: column; 
 }
 
-.main_page_h1, .input_page_h1 { 
+.main_page_h1, .input_page_h1,
+.display_page_h1 { 
   text-align: center; 
 }
 
@@ -20,6 +21,28 @@ main {
   margin-bottom: 5%; 
 }
 
-.start_button, .submit_button {
+.start_button, .submit_button,
+.clear_translations {
   padding: 0% 5%; 
+}
+
+.display {
+  display: flex;
+}
+
+.clear_translations {
+  margin-top: 5%; 
+}
+
+footer {
+  display: flex;
+  justify-content: center; 
+  border-top: 1px solid black; 
+  margin-top: 5%;   
+}
+
+.about_link {
+  display: inline-block;
+  margin-top: 5%; 
+  border: 1px solid black;  
 }
