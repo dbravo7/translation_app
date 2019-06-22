@@ -7,6 +7,19 @@ main {
   flex-direction: column; 
 }
 
-.main_page_h1 { 
+.main_page_h1, .input_page_h1 { 
   text-align: center; 
+}
+
+.input_form {
+  display: flex; 
+  flex-direction: column; 
+}
+
+.input_text {
+  margin-bottom: 5%; 
+}
+
+.start_button, .submit_button {
+  padding: 0% 5%; 
 }
