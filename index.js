@@ -6,7 +6,7 @@ function handleSubmitText() {
     const text = $('#js-input-text').val();
     const target_lang = $('#target-languages').val();
     // source_lang is an array with language code at index 0 and language name at index 1 
-    const source_code = autoDetectCode(text); 
+    const source_code = getCode(text); 
     displaySourceLang(source_code); 
     
     let google_translation = getGoogleTranslate(text);
@@ -14,7 +14,7 @@ function handleSubmitText() {
   });
 }
 
-function autoDetectLang(text) {
+function getCode(text) {
   const key = "trnsl.1.1.20190623T171226Z.fdebf1cca158169c.94adac83b45772c4a37ee06f3336196eb133db72";
   const url = `https://translate.yandex.net/api/v1.5/tr.json/detect?key=${key}&text=${text}`;
 
@@ -38,8 +38,14 @@ function getGoogleTranslate(text) {
 }
 
 function getYandexTranslate(text) {
-  const key = "trnsl.1.1.20190623T171226Z.fdebf1cca158169c.94adac83b45772c4a37ee06f3336196eb133db72";
-  const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?`;
+  const api_key = "trnsl.1.1.20190623T171226Z.fdebf1cca158169c.94adac83b45772c4a37ee06f3336196eb133db72";
+  const params = {
+    key: api_key,
+    text: text,
+    lang: lang
+  }
+  const query_String = formatQueryParams(params);
+  const url = `https://translate.yandex.net/api/v1.5/tr.json/translate? + ${query_String}`;
 }
 
 $(handleSubmitText); 
@@ -57,6 +63,6 @@ $(handleSubmitText);
 // yandex key: trnsl.1.1.20190623T171226Z.fdebf1cca158169c.94adac83b45772c4a37ee06f3336196eb133db72
 
 // https://translate.yandex.net/api/v1.5/tr.json/translate?
-// key=trnsl.1.1.20190623T171226Z.fdebf1cca158169c.94adac83b45772c4a37ee06f3336196eb133db72&text=我是你的朋友 &lang=en
+// key=trnsl.1.1.20190623T171226Z.fdebf1cca158169c.94adac83b45772c4a37ee06f3336196eb133db72&text=我是你的朋友 &lang=en OR &lang=zh-en
 
 // https://translate.yandex.net/api/v1.5/tr.json/detect?key=trnsl.1.1.20190623T171226Z.fdebf1cca158169c.94adac83b45772c4a37ee06f3336196eb133db72&text=我
