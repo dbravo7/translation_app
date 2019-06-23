@@ -7,8 +7,7 @@ main {
   flex-direction: column; 
 }
 
-.main_page_h1, .input_page_h1,
-.display_page_h1 { 
+.main_header { 
   text-align: center; 
 }
 
@@ -21,8 +20,7 @@ main {
   margin-bottom: 5%; 
 }
 
-.start_button, .submit_button,
-.clear_translations {
+.buttons {
   padding: 0% 5%; 
 }
 
