@@ -10,7 +10,7 @@ function handleSubmitText() {
     getSourceCode(text); 
     
     // Gets translated texts from respective APIs and displays them
-    getGoogleTranslate(text, target_code);
+    getGoogleTranslate(text);
     getYandexTranslate(text, target_code);
   });
 }
@@ -32,7 +32,7 @@ function getSourceCode(text) {
   });
 }
 
-function getGoogleTranslate(text, lang='en') {
+function getGoogleTranslate(text, lang='zh-en') {
   const api_key = config.G_KEY; 
   const params = {
     key: api_key,
@@ -51,7 +51,7 @@ function getGoogleTranslate(text, lang='en') {
     })
     .then(responseJson => displayGoogleTranslate(responseJson.data.translations[0].translatedText))
     .catch(error => {
-      $('#js-google-translate').text(`Error loading this translation: ${error.message}`);
+      $('#js-google-translate').text(`Error loading this translations`);
   });
 }
 
@@ -97,8 +97,16 @@ function populateDisplayInput(text) {
   $('#js-display-input').text(`${text}`); 
 }
 
+function clearTranslations() {
+  $('#js-clear-translations').click(() => {
+    $('#js-google-translate').empty();
+    $('#js-yandex-translate').empty(); 
+  });
+}
+
 
 $(handleSubmitText); 
+$(clearTranslations)
 
 // retrieve translations
   // automatically detect source language 

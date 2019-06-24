@@ -2,6 +2,11 @@
   box-sizing: border-box; 
 }
 
+html {
+  margin: 0;
+  padding: 0; 
+}
+
 main {
   display: flex;
   flex-direction: column; 
@@ -17,6 +22,7 @@ main {
 }
 
 .input_text {
+  margin-top: 5%; 
   margin-bottom: 5%; 
 }
 
@@ -28,15 +34,29 @@ main {
   display: flex;
 }
 
-.clear_translations {
+.translate_box {
+  border: 1px solid black; 
   margin-top: 5%; 
+}
+
+.translation {
+  padding: 3%; 
+}
+
+.translate_link {
+  text-decoration: none; 
+}
+
+.clear_translations {
+  margin-top: 10%; 
 }
 
 footer {
   display: flex;
   justify-content: center; 
-  border-top: 1px solid black; 
+  border: 1px solid black; 
   margin-top: 5%;   
+  margin-bottom: 0; 
 }
 
 .about_link {
