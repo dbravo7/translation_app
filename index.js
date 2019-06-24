@@ -32,7 +32,7 @@ function getSourceCode(text) {
   });
 }
 
-function getGoogleTranslate(text, lang='zh-en') {
+function getGoogleTranslate(text, lang='en') {
   const api_key = config.G_KEY; 
   const params = {
     key: api_key,
@@ -40,7 +40,7 @@ function getGoogleTranslate(text, lang='zh-en') {
     target: lang
   };
   const query_string = formatQueryParams(params); 
-  const url = `https://translation.googleapis.com/language/translate/v2?${query_string}`; 
+  const url = `https://translation.googleapis.com/language/translate/v2?${query_string}&format=text`; 
 
   fetch(url) 
     .then(response => {
