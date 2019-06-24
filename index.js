@@ -1,22 +1,21 @@
 "use strict";
 
 function handleSubmitText() {
-  $('#js-submit').on('click', event => {
+  $('#js-submit').click(event => {
     event.preventDefault();
     const text = $('#js-input-text').val();
-    const target_lang = $('#target-languages').val();
+    const target_code = $('#js-target-languages').val();
+  
+    // Gets language 2-3 letter code and displays it as 'auto detect'
+    getSourceCode(text); 
     
-    const source_code = getCode(text); 
-    
-    let google_translation = getGoogleTranslate(text);
-    let yandex_translation = getYandexTranslate(text);
-    populateDisplayInput(text); 
-    displayBothTranslations(google_translation, yandex_translation);
-    
+    // Gets translated texts from respective APIs and displays them
+    getGoogleTranslate(text, target_code);
+    getYandexTranslate(text, target_code);
   });
 }
 
-function getCode(text) {
+function getSourceCode(text) {
   const key = config.Y_KEY; 
   const url = `https://translate.yandex.net/api/v1.5/tr.json/detect?key=${key}&text=${text}`;
 
@@ -33,8 +32,27 @@ function getCode(text) {
   });
 }
 
-function getGoogleTranslate(text) {
+function getGoogleTranslate(text, lang='en') {
+  const api_key = config.G_KEY; 
+  const params = {
+    key: api_key,
+    q: text,
+    target: lang
+  };
+  const query_string = formatQueryParams(params); 
+  const url = `https://translation.googleapis.com/language/translate/v2?${query_string}`; 
 
+  fetch(url) 
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(responseJson => displayGoogleTranslate(responseJson.data.translations[0].translatedText))
+    .catch(error => {
+      $('#js-google-translate').text(`Error loading this translation: ${error.message}`);
+  });
 }
 
 function getYandexTranslate(text, lang='en') {
@@ -48,18 +66,17 @@ function getYandexTranslate(text, lang='en') {
   const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?${query_string}`;
 
   
-  return fetch(url) 
+  fetch(url) 
     .then(response => {
       if (response.ok) {
         return response.json();
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => {return responseJson.text[0];})
+    .then(responseJson => displayYandexTranslate(responseJson.text[0]))
     .catch(error => {
-      alert(`Something went wrong: ${error.message}`);
+      $('#js-yandex-translate').text(`Error loading this translation: ${error.message}`);
   });
-
 }
 
 function formatQueryParams(params) {
@@ -72,13 +89,14 @@ function displayYandexTranslate(text) {
   $('#js-yandex-translate').text(`${text}`); 
 }
 
-function populateDisplayInput(text) {
-  $()
-}
-function displayBothTranslations(google, yandex) {
+function displayGoogleTranslate(google, yandex) {
   $('#js-google-translate').text(`${google}`);
-  $('#js-yandex-translate').text(`${yandex}`);
 }
+
+function populateDisplayInput(text) {
+  $('#js-display-input').text(`${text}`); 
+}
+
 
 $(handleSubmitText); 
 
@@ -195,5 +213,4 @@ function displaySourceLang(source) {
   };
 
     $('#js-auto-detect').text(languages[source]);
-  
 }
