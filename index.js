@@ -7,7 +7,6 @@ function handleSubmitText() {
     const target_lang = $('#target-languages').val();
     // source_lang is an array with language code at index 0 and language name at index 1 
     const source_code = getCode(text); 
-    displaySourceLang(source_code); 
     
     let google_translation = getGoogleTranslate(text);
     let yandex_translation = getYandexTranslate(text);
@@ -18,14 +17,14 @@ function getCode(text) {
   const key = config.Y_KEY; 
   const url = `https://translate.yandex.net/api/v1.5/tr.json/detect?key=${key}&text=${text}`;
 
-  return fetch(url)
+ fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json();
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => {return responseJson.lang})
+    .then(responseJson => displaySourceLang(responseJson.lang))
     .catch(error => {
       alert(`Something went wrong: ${error.message}`);
     });
@@ -53,11 +52,6 @@ function formatQueryParams(params) {
     .map(key => `encodeURIComponent`)
 }
 
-function displaySourceLang(source) {
-  const key = config.Y_KEY;
-  const url = `https://translate.yandex.net/api/v1.5/tr.json/getLangs?key=${key}`
-}
-
 $(handleSubmitText); 
 
 // retrieve translations
@@ -73,3 +67,105 @@ $(handleSubmitText);
 // key=&text=我是你的朋友 &lang=en OR &lang=zh-en
 
 // https://translate.yandex.net/api/v1.5/tr.json/detect?key=&text=我
+
+
+function displaySourceLang(source) {
+  const languages = {
+    az: "Azerbaijan",
+    sq: "Albanian",
+    am: "Amharic",
+    en: "English",
+    ar: "Arabic",
+    hy: "Armenian",
+    af: "Afrikaans",
+    eu: "Basque",
+    ba: "Bashkir",
+    be: "Belarusian",
+    bn: "Bengali",
+    my: "Burmese",
+    bg: "Bulgarian",
+    bs: "Bosnian",
+    cy: "Welsh",
+    hu: "Hungarian",
+    vi: "Vietnamese",
+    ht: "Haitian (Creole)",
+    gl: "Galician",
+    nl: "Dutch",
+    mrj: "Hill Mari",
+    el: "Greek",
+    ka: "Georgian",
+    gu: "Gujarati",
+    da: "Danish",
+    he: "Hebrew",
+    yi: "Yiddish",
+    id: "Indonesian",
+    ga: "Irish",
+    it: "Italian",
+    is: "Icelandic",
+    es: "Spanish",
+    kk: "Kazakh",
+    kn: "Kannada",
+    ca: "Catalan",
+    ky: "Kyrgyz",
+    zh: "Chinese",
+    ko: "Korean",
+    xh: "Xhosa",
+    km: "Khmer",
+    lo: "Laotian",
+    la: "Latin",
+    lv: "Latvian",
+    lt: "Lithuanian",
+    lb: "Luxembourgish",
+    mg: "Malagasy",
+    ms: "Malay",
+    ml: "Malayalam",
+    mt: "Maltese",
+    mk: "Macedonian",
+    mi: "Maori",
+    mr: "Marathi",
+    mhr: "Mari",
+    mn: "Mongolian",
+    de: "German",
+    ne: "Nepali",
+    no: "Norwegian",
+    pa: "Punjabi",
+    pap: "Papiamento",
+    fa: "Persian",
+    pl: "Polish",
+    pt: "Portuguese",
+    ro: "Romanian",
+    ru: "Russian",
+    ceb: "Cebuano",
+    sr: "Serbian",
+    si: "Sinhala",
+    sk: "Slovakian",
+    sl: "Slovenian",
+    sw: "Swahili",
+    su: "Sundanese",
+    tg: "Tajik",
+    th: "Thai",
+    tl: "Tagalog",
+    ta: "Tamil",
+    tt: "Tatar",
+    te: "Telugu",
+    tr: "Turkish",
+    udm: "Udmurt",
+    uz: "Uzbek",
+    uk: "Ukrainian",
+    ur: "Urdu",
+    fi: "Finnish",
+    fr: "French",
+    hi: "Hindi",
+    hr: "Croatian",
+    cs: "Czech",
+    sv: "Swedish",
+    gd: "Scottish",
+    et: "Estonian",
+    eo: "Esperanto",
+    jv: "Javanese",
+    ja: "Japanese"
+  };
+
+    $('#js-auto-detect').change(languages[source]);
+  
+}
