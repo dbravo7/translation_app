@@ -5,11 +5,14 @@ function handleSubmitText() {
     event.preventDefault();
     const text = $('#js-input-text').val();
     const target_lang = $('#target-languages').val();
-    // source_lang is an array with language code at index 0 and language name at index 1 
+    
     const source_code = getCode(text); 
     
     let google_translation = getGoogleTranslate(text);
     let yandex_translation = getYandexTranslate(text);
+    populateDisplayInput(text); 
+    displayBothTranslations(google_translation, yandex_translation);
+    
   });
 }
 
@@ -17,7 +20,7 @@ function getCode(text) {
   const key = config.Y_KEY; 
   const url = `https://translate.yandex.net/api/v1.5/tr.json/detect?key=${key}&text=${text}`;
 
- fetch(url)
+  fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -27,9 +30,7 @@ function getCode(text) {
     .then(responseJson => displaySourceLang(responseJson.lang))
     .catch(error => {
       alert(`Something went wrong: ${error.message}`);
-    });
-  // https://translate.yandex.net/api/v1.5/tr.json/detect?
-  // key=&text=我
+  });
 }
 
 function getGoogleTranslate(text) {
@@ -42,14 +43,41 @@ function getYandexTranslate(text, lang='en') {
     key: api_key,
     text: text,
     lang: lang
-  }
+  };
   const query_string = formatQueryParams(params);
-  const url = `https://translate.yandex.net/api/v1.5/tr.json/translate? + ${query_String}`;
+  const url = `https://translate.yandex.net/api/v1.5/tr.json/translate?${query_string}`;
+
+  
+  return fetch(url) 
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(responseJson => {return responseJson.text[0];})
+    .catch(error => {
+      alert(`Something went wrong: ${error.message}`);
+  });
+
 }
 
 function formatQueryParams(params) {
   const query_items = Object.keys(params)
-    .map(key => `encodeURIComponent`)
+    .map(key => `${encodeURIComponent(key)}=${params[key]}`);
+    return query_items.join('&'); 
+}
+
+function displayYandexTranslate(text) {
+  $('#js-yandex-translate').text(`${text}`); 
+}
+
+function populateDisplayInput(text) {
+  $()
+}
+function displayBothTranslations(google, yandex) {
+  $('#js-google-translate').text(`${google}`);
+  $('#js-yandex-translate').text(`${yandex}`);
 }
 
 $(handleSubmitText); 
@@ -166,6 +194,6 @@ function displaySourceLang(source) {
     ja: "Japanese"
   };
 
-    $('#js-auto-detect').change(languages[source]);
+    $('#js-auto-detect').text(languages[source]);
   
 }
