@@ -1,5 +1,35 @@
 "use strict";
 
+function duoCompare() {
+  $('#js-compare').click(() => {
+
+    let google_translation = $('#js-google-translate').text();
+    let yandex_translation = $('#js-yandex-translate').text();
+    const target_code = $('#js-target-languages').val();
+
+    if (target_code === "en") {
+      let google_arr = google_translation.split(" ");
+      let yandex_arr = yandex_translation.split(" ");
+      const indices = compareTranslations(yandex_arr, google_arr);
+      updateGoogleTranslation(indices, google_arr);
+      updateYandexTranslation(indices, yandex_arr);
+     } else {
+      alert('This feature is currently only available for translations to English');
+     }
+  });
+}
+
+function compareTranslations(yandex_arr, google_arr) {
+  let indices = [];
+
+  google_arr.forEach(function (element, index, google_arr) {
+    if (google_arr[index].toLowerCase() !== yandex_arr[index].toLowerCase()) {
+      indices.push(index);
+    }
+  });
+  return indices;
+}
+
 function handleSubmitText() {
   $('#js-submit').click(event => {
     event.preventDefault();
@@ -10,9 +40,8 @@ function handleSubmitText() {
     getSourceCode(text); 
     
     // Gets translated texts from respective APIs and displays them
-    // getGoogleTranslate(text);
-    let yandex_text = getYandexTranslate(text, target_code);
-    console.log(yandex_text);
+    getGoogleTranslate(text);
+    getYandexTranslate(text, target_code);
   });
 }
 
@@ -74,7 +103,7 @@ function getYandexTranslate(text, lang='en') {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => {return responseJson.text[0];})
+    .then(responseJson => displayYandexTranslate(responseJson.text[0]))
     .catch(error => {
       $('#js-yandex-translate').text(`Error loading this translation: ${error.message}`);
   });
@@ -90,7 +119,7 @@ function displayYandexTranslate(text) {
   $('#js-yandex-translate').text(`${text}`); 
 }
 
-function displayGoogleTranslate(google, yandex) {
+function displayGoogleTranslate(text) {
   $('#js-google-translate').text(`${google}`);
 }
 
@@ -105,14 +134,11 @@ function clearTranslations() {
   });
 }
 
-function compareTranslations(arr1=[1, 3, 5, 9], arr2=[2, 3, 5]) {
-  // have the length of each arr
-  // use conditionals to iterate across
-}
-
 
 $(handleSubmitText); 
-$(clearTranslations)
+$(duoCompare);
+$(clearTranslations);
+
 
 // retrieve translations
   // convert to an array of words
