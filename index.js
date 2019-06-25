@@ -12,6 +12,7 @@ function handleSubmitText() {
     // Gets translated texts from respective APIs and displays them
     getGoogleTranslate(text);
     getYandexTranslate(text, target_code);
+    
   });
 }
 

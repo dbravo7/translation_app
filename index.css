@@ -91,6 +91,7 @@ footer {
 }
 
 .about_link {
+  text-decoration: none; 
   display: inline-block;
   margin-top: 5%; 
   margin-bottom: 5%; 
