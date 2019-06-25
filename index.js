@@ -10,9 +10,8 @@ function handleSubmitText() {
     getSourceCode(text); 
     
     // Gets translated texts from respective APIs and displays them
-    getGoogleTranslate(text);
-    getYandexTranslate(text, target_code);
-    
+    // getGoogleTranslate(text);
+    let yandex_text = getYandexTranslate(text, target_code);
   });
 }
 
@@ -74,7 +73,7 @@ function getYandexTranslate(text, lang='en') {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => displayYandexTranslate(responseJson.text[0]))
+    .then(responseJson => {return responseJson.text[0];})
     .catch(error => {
       $('#js-yandex-translate').text(`Error loading this translation: ${error.message}`);
   });
@@ -105,13 +104,16 @@ function clearTranslations() {
   });
 }
 
+function compareTranslations(arr1=[1, 3, 5, 9], arr2=[2, 3, 5]) {
+  // have the length of each arr
+  // use conditionals to iterate across
+}
+
 
 $(handleSubmitText); 
 $(clearTranslations)
 
 // retrieve translations
-  // automatically detect source language 
-  // user can choose target language 
   // convert to an array of words
   // compare arrays
 // display results
