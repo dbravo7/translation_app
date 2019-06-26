@@ -20,7 +20,8 @@ main {
 }
 
 #main_page p {
-  margin-bottom: 20%; 
+  text-align: center; 
+  margin-bottom: 30%; 
 }
 
 .main_header { 
@@ -28,10 +29,15 @@ main {
   margin-bottom: 8%; 
 }
 
+#main_page div {
+  margin-right: 20%; 
+  margin-left: 20%; 
+}
+
 .start_button {
-  text-decoration: none; 
   display: block;
   text-align: center; 
+  text-decoration: none; 
   border:1px solid black;
   border-radius: 10px; 
   padding: 3%; 
@@ -42,10 +48,6 @@ main {
   flex-direction: column; 
   margin-right: 5%; 
   margin-left: 5%;
-}
-
-.languages {
-  /* width: 45%;  */
 }
 
 .input_text {
@@ -94,10 +96,6 @@ main {
   margin: 5%; 
 }
 
-.clear {
-  margin: 15% 25% 0% 25%; 
-}
-
 footer {
   display: flex;
   justify-content: center; 
@@ -118,6 +116,15 @@ footer {
 }
 
 @media only screen and (min-width: 768px) {
+
+  #main_page p {
+    margin-bottom: 15%;
+  }
+
+  #main_page div {
+    margin-right: 40%; 
+    margin-left: 40%; 
+  }
 
   .input_form {
     flex-direction: row; 
