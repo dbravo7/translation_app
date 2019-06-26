@@ -1,60 +1,8 @@
 "use strict";
 
-// function duoCompare() {
-//   $('#js-compare').click(() => {
+function getDefinition() {
 
-//     let google_translation = $('#js-google-translate').text();
-//     let yandex_translation = $('#js-yandex-translate').text();
-//     const target_code = $('#js-target-languages').val();
-
-//     if (target_code === "en") {
-//       let google_arr = google_translation.split(" ");
-//       let yandex_arr = yandex_translation.split(" ");
-//       const indices = compareTranslations(yandex_arr, google_arr);
-//       let google_update = updateTranslation(indices, google_arr);
-//       let yandex_update = updateTranslation(indices, yandex_arr);
-//       displayComparedTranslations(google_update, yandex_update);
-//      } else {
-//       alert('This feature is currently only available for translations to English');
-//      }
-//   });
-// }
-
-// function compareTranslations(yandex_arr, google_arr) {
-//   let indices = [];
-  // if google_arr.length !== yandex_arr.length {
-  // let longer_text = longerTranslation(google_arr, yandex_arr);
-  // let shorter_text = shorterTranslation
-  // }
-
-//   google_arr.forEach(function (element, index, google_arr) {
-//     if ((google_arr[index] && yandex_arr[index]) &&
-//      (google_arr[index].toLowerCase() !== yandex_arr[index].toLowerCase())) {
-//       indices.push(index);
-//     } else {
-//       indices.push(index); 
-//     }
-//   });
-//   return indices;
-// }
-
-// function updateTranslation(indices, translation_arr) {
-//   let new_arr = [];
-  
-//     translation_arr.forEach(function(ele, index) {
-//       if (index === indices[index]) {
-//         new_arr.push(`<span class="highlight">${ele}</span>`);
-//       } else {
-//         new_arr.push(ele);
-//       }
-//   });
-//   return new_arr.join(" ");
-// }
-
-// function displayComparedTranslations(google_update, yandex_update) {
-//   $('#js-google-translate').html(`${google_update}`);
-//   $('#js-display-input').html(`${yandex_update}`); 
-// }
+}
 
 function handleSubmitText() {
   $('#js-submit').click(event => {
@@ -109,7 +57,8 @@ function getGoogleTranslate(text, lang='en') {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => displayGoogleTranslate(responseJson.data.translations[0].translatedText))
+    .then(responseJson => 
+      displayGoogleTranslate(responseJson.data.translations[0].translatedText, lang))
     .catch(error => {
       $('#js-google-translate').text(`Error loading this translation`);
   });
@@ -133,7 +82,7 @@ function getYandexTranslate(text, lang='en') {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => displayYandexTranslate(responseJson.text[0]))
+    .then(responseJson => displayYandexTranslate(responseJson.text[0], lang))
     .catch(error => {
       $('#js-yandex-translate').text(`Error loading this translation: ${error.message}`);
   });
@@ -145,28 +94,44 @@ function formatQueryParams(params) {
     return query_items.join('&'); 
 }
 
-function displayYandexTranslate(yandex) {
-  $('#js-yandex-translate').text(`${yandex}`); 
+function displayYandexTranslate(yandex, lang) {
+  if ((lang === 'en') || (lang === 'es') || (lang === 'pt')) {
+    $('#js-yandex-translate').html(`${linkedTranslation(yandex, lang)}`);
+  } else {
+    $('#js-yandex-translate').text(`${yandex}`);  
+  }
 }
 
-function displayGoogleTranslate(google) {
-  $('#js-google-translate').text(`${google}`);
+function displayGoogleTranslate(google, lang) {
+  if ((lang === 'en') || (lang === 'es') || (lang === 'pt')) {
+    $('#js-google-translate').html(`${linkedTranslation(google, lang)}`);
+  } else {  
+    $('#js-google-translate').text(`${google}`);
+  }
 }
 
-function populateDisplayInput(text) {
-  $('#js-display-input').text(`${text}`); 
-}
-
-function clearTranslations() {
-  $('#js-clear-translations').click(() => {
-    $('#js-google-translate').empty();
-    $('#js-yandex-translate').empty(); 
+function linkedTranslation(text, lang) {
+  let text_arr = text.split(" ");
+  let new_arr = [];
+  text_arr.forEach(function(word) {
+    new_arr.push(`<a href="#" class="linked_word" value="${lang}">${word}</a>`);
   });
+  return new_arr.join(" ");
 }
+
+// function populateDisplayInput(text) {
+//   $('#js-display-input').text(`${text}`); 
+// }
+
+// function clearTranslations() {
+//   $('#js-clear-translations').click(() => {
+//     $('#js-google-translate').empty();
+//     $('#js-yandex-translate').empty(); 
+//   });
+// }
 
 $(handleSubmitText); 
 $(getSourceCode);
-// $(duoCompare);
 $(clearTranslations);
 
 function displaySourceLang(source) {
@@ -266,5 +231,5 @@ function displaySourceLang(source) {
     ja: "Japanese"
   };
 
-    $('#js-auto-detect').text(languages[source]);
+  $('#js-auto-detect').text(languages[source]);
 }

@@ -88,9 +88,14 @@ main {
   margin-left: 5%;  
 }
 
-.highlight {
-  background-color: yellow;
+/* .linked_word {
+  text-decoration: underline;
+  cursor: pointer; 
 }
+
+.linked_word:hover {
+  background-color: yellow;
+} */
 
 .submit {
   margin: 5%; 
