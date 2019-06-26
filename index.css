@@ -44,17 +44,29 @@ main {
   margin-left: 5%;
 }
 
+.languages {
+  /* width: 45%;  */
+}
+
 .input_text {
+  resize: none; 
+  width: 100%; 
   margin-top: 5%; 
-  margin-bottom: 5%; 
+  margin-bottom: 1%; 
 }
 
 .buttons {
   padding: 0% 5%; 
 }
 
-.display {
+.container {
   display: flex;
+  flex-direction: column; 
+  margin-top: 10%; 
+}
+
+.container_yandex {
+  margin-top: 10%; 
 }
 
 .translate_box {
@@ -74,19 +86,26 @@ main {
   margin-left: 5%;  
 }
 
-.clear_translations {
-  margin: 10%; 
+.highlight {
+  background-color: yellow;
+}
 
+.submit {
+  margin: 5%; 
+}
+
+.clear {
+  margin: 15% 25% 0% 25%; 
 }
 
 footer {
   display: flex;
   justify-content: center; 
-  position: absolute;
-  bottom: 0; 
+  position: relative;
+  top: 15%; 
   width: 100%; 
   border-top: 1px solid black; 
-  margin-top: 5%;   
+  margin-top: 3%;   
   margin-bottom: 0;  
 }
 
@@ -96,4 +115,46 @@ footer {
   margin-top: 5%; 
   margin-bottom: 5%; 
   
+}
+
+@media only screen and (min-width: 768px) {
+
+  .input_form {
+    flex-direction: row; 
+    flex-wrap: wrap; 
+  }
+
+  .languages {
+    border: 1px solid black; 
+    width: 25%; 
+    margin-right: 10%; 
+    margin-left: 3%; 
+  }
+
+  .input_text {
+    margin-top: 0%; 
+    margin-right: 150px; 
+    height: 100px; 
+  }
+
+  .container {
+    flex-direction: row; 
+    justify-content: space-around; 
+    height: 300px;  
+  }
+
+  .container_yandex, .container_google {
+    margin: 0; 
+    display: inline-block;
+    height: 100%; 
+    width: 40%;  
+  }
+
+  .translate_box {
+    height: 80%; 
+  }
+
+  .footer {
+    top: 10%; 
+  }
 }
