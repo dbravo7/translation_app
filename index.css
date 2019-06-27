@@ -1,3 +1,6 @@
+/* font-family: 'Spectral', serif;
+font-family: 'Karla', sans-serif; */
+
 * {
   box-sizing: border-box; 
 }
@@ -6,11 +9,17 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;  
+  background-color: #D9D9D9; 
+}
+
+h1, h2 {
+  font-family: 'Spectral', serif; 
 }
 
 main {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;  
+  font-family: 'Karla', sans-serif; 
 }
 
 #main_page {
@@ -19,14 +28,29 @@ main {
   justify-content: center; 
 }
 
+.logo {
+  /* border: 1px solid black;  */
+  display: flex; 
+  justify-content: center; 
+  width: 90%; 
+  align-self: center; 
+}
+
+img {
+  height: auto; 
+  max-width: 100%; 
+}
+
 #main_page p {
+  line-height: 1.6;
   text-align: center; 
-  margin-bottom: 30%; 
+  margin-bottom: 20%; 
 }
 
 .main_header { 
   text-align: center; 
-  margin-bottom: 8%; 
+  margin-top: 5%; 
+  margin-bottom: 5%; 
 }
 
 #main_page div {
@@ -38,9 +62,20 @@ main {
   display: block;
   text-align: center; 
   text-decoration: none; 
-  border:1px solid black;
-  border-radius: 10px; 
+  color: black; 
+  background-color: #F2F2F2;
+  border:1px solid #8C8B8B;
+  border-radius: 18px; 
   padding: 3%; 
+  transition: all .1s linear; 
+}
+
+.start_button:hover {
+  background-color: #8C8B8B;
+}
+
+.start_button:active {
+  transform: translateY(3px);
 }
 
 .input_form {
