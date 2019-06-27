@@ -1,9 +1,29 @@
 "use strict";
 
-function getDefinition() {
+function getRootWord() {
+ $('p').on('click', '.linked_word', event => {
+   let lang = event.target.attributes.value.nodeValue;
+   let word = event.target.text; 
+   const options = {
+     app_id: config.O_ID,
+    app_key: config.O_KEY
+   };
+   let url = `https://od-api.oxforddictionaries.com/api/v2/lemmas/${lang}/${word}`;
 
+    fetch(url, options)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error(response.statusText);
+    })
+    .then(responseJson => console.log(responseJson))
+    .catch(error => { 
+      alert('Word cannot be found in the dictionary');
+    });
+  });
 }
-
+// results.inflectionOf.text
 function handleSubmitText() {
   $('#js-submit').click(event => {
     event.preventDefault();
@@ -132,7 +152,7 @@ function linkedTranslation(text, lang) {
 
 $(handleSubmitText); 
 $(getSourceCode);
-$(clearTranslations);
+$(getRootWord);
 
 function displaySourceLang(source) {
   const languages = {
