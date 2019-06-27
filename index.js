@@ -1,29 +1,5 @@
 "use strict";
 
-function getRootWord() {
- $('p').on('click', '.linked_word', event => {
-   let lang = event.target.attributes.value.nodeValue;
-   let word = event.target.text; 
-   const options = {
-     app_id: config.O_ID,
-    app_key: config.O_KEY
-   };
-   let url = `https://od-api.oxforddictionaries.com/api/v2/lemmas/${lang}/${word}`;
-
-    fetch(url, options)
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error(response.statusText);
-    })
-    .then(responseJson => console.log(responseJson))
-    .catch(error => { 
-      alert('Word cannot be found in the dictionary');
-    });
-  });
-}
-// results.inflectionOf.text
 function handleSubmitText() {
   $('#js-submit').click(event => {
     event.preventDefault();
@@ -32,7 +8,7 @@ function handleSubmitText() {
 
     if (text) {
       // Gets translated texts from respective APIs and displays them
-      getGoogleTranslate(text);
+      getGoogleTranslate(text, target_code);
       getYandexTranslate(text, target_code);
     }
   });
@@ -115,16 +91,18 @@ function formatQueryParams(params) {
 }
 
 function displayYandexTranslate(yandex, lang) {
-  if ((lang === 'en') || (lang === 'es') || (lang === 'pt')) {
-    $('#js-yandex-translate').html(`${linkedTranslation(yandex, lang)}`);
+  let source_lang = $('#js-auto-detect').text();
+  if (lang === 'en' && dictLanguages(source_lang)) {
+    $('#js-yandex-translate').html(`${linkedTranslation(yandex, source_lang.toLowerCase())}`);
   } else {
     $('#js-yandex-translate').text(`${yandex}`);  
   }
 }
 
 function displayGoogleTranslate(google, lang) {
-  if ((lang === 'en') || (lang === 'es') || (lang === 'pt')) {
-    $('#js-google-translate').html(`${linkedTranslation(google, lang)}`);
+  let source_lang = $('#js-auto-detect').text();
+  if (lang === 'en' && dictLanguages(source_lang)) {
+    $('#js-google-translate').html(`${linkedTranslation(google, source_lang.toLowerCase())}`);
   } else {  
     $('#js-google-translate').text(`${google}`);
   }
@@ -134,25 +112,45 @@ function linkedTranslation(text, lang) {
   let text_arr = text.split(" ");
   let new_arr = [];
   text_arr.forEach(function(word) {
-    new_arr.push(`<a href="#" class="linked_word" value="${lang}">${word}</a>`);
+    new_arr.push(`<a href="https://www.linguee.com/english-${lang}/search?source=auto&query=${word}" 
+    class="linked_word" target="_blank" value="${lang}">${word}</a>`);
   });
   return new_arr.join(" ");
 }
 
-// function populateDisplayInput(text) {
-//   $('#js-display-input').text(`${text}`); 
-// }
-
-// function clearTranslations() {
-//   $('#js-clear-translations').click(() => {
-//     $('#js-google-translate').empty();
-//     $('#js-yandex-translate').empty(); 
-//   });
-// }
-
 $(handleSubmitText); 
 $(getSourceCode);
-$(getRootWord);
+
+function dictLanguages(lang) {
+  const languages = [
+  "English",
+  "German",
+  "French",
+  "Spanish",
+  "Chinese",
+  "Russian",
+  "Japanese",
+  "Portuguese",
+  "Italian",
+  "Dutch",
+  "Polish",
+  "Swedish",
+  "Danish",
+  "Finnish",
+  "Greek",
+  "Czech",
+  "Romanian",
+  "Hungarian",
+  "Slovak",
+  "Bulgarian",
+  "Slovene",
+  "Lithuanian",
+  "Latvian",
+  "Estonian",
+  "Maltese"
+];
+  return languages.includes(lang); 
+}
 
 function displaySourceLang(source) {
   const languages = {
