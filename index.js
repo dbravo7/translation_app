@@ -8,8 +8,9 @@ function handleSubmitText() {
 
     if (text) {
       // Gets translated texts from respective APIs and displays them
-      getGoogleTranslate(text, target_code);
-      getYandexTranslate(text, target_code);
+      setTimeout(function() {
+        getGoogleTranslate(text, target_code);
+        getYandexTranslate(text, target_code);}, 300);
     }
   });
 }
@@ -18,7 +19,6 @@ function getSourceCode() {
   $('#js-input-text').change(event => {
     let text = $('#js-input-text').val();
     if (text) {
-
       const key = config.Y_KEY; 
       const url = `https://translate.yandex.net/api/v1.5/tr.json/detect?key=${key}&text=${text}`;
       fetch(url)
