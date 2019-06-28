@@ -16,7 +16,7 @@ function handleSubmitText() {
 }
 
 function getSourceCode() {
-  $('#js-input-text').change(event => {
+  $('#js-input-text').on('input', event => {
     let text = $('#js-input-text').val();
     if (text) {
       const key = config.Y_KEY; 
