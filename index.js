@@ -10,7 +10,7 @@ function handleSubmitText() {
       // Gets translated texts from respective APIs and displays them
       setTimeout(function() {
         getGoogleTranslate(text, target_code);
-        getYandexTranslate(text, target_code);}, 300);
+        getYandexTranslate(text, target_code);}, 500);
     }
   });
 }
@@ -102,8 +102,10 @@ function displayYandexTranslate(yandex, lang) {
 function displayGoogleTranslate(google, lang) {
   let source_lang = $('#js-auto-detect').text();
   if (lang === 'en' && dictLanguages(source_lang)) {
+    definitionsAvailable();
     $('#js-google-translate').html(`${linkedTranslation(google, source_lang.toLowerCase())}`);
   } else {  
+    definitionsNotAvailable();
     $('#js-google-translate').text(`${google}`);
   }
 }
@@ -116,6 +118,14 @@ function linkedTranslation(text, lang) {
     class="linked_word" target="_blank" value="${lang}">${word}</a>`);
   });
   return new_arr.join(" ");
+}
+
+function definitionsAvailable() {
+  $('.definitions').text('Definitions are available. Click on a word to see its definition in a separate tab');
+}
+
+function definitionsNotAvailable() {
+  $('.definitions').text('Definitions are not available for this language pair');
 }
 
 $(handleSubmitText); 

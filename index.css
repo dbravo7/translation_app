@@ -29,7 +29,6 @@ main {
 }
 
 .logo {
-  /* border: 1px solid black;  */
   display: flex; 
   justify-content: center; 
   width: 90%; 
@@ -41,16 +40,24 @@ img {
   max-width: 100%; 
 }
 
+.main_header { 
+  text-align: center; 
+  margin-top: 5%; 
+}
+
+.main_header h1{
+  font-size: 36px; 
+}
+
 #main_page p {
   line-height: 1.6;
   text-align: center; 
   margin-bottom: 20%; 
 }
 
-.main_header { 
-  text-align: center; 
-  margin-top: 5%; 
-  margin-bottom: 5%; 
+.duo {
+  color: #F2F2F2;
+  text-shadow: 2px 2px black;
 }
 
 #main_page div {
@@ -64,10 +71,11 @@ img {
   text-decoration: none; 
   color: black; 
   background-color: #F2F2F2;
-  border:1px solid #8C8B8B;
+  border: 2px solid #8C8B8B;
   border-radius: 18px; 
   padding: 3%; 
-  transition: all .1s linear; 
+  transition: all .1s linear;
+  cursor: pointer;  
 }
 
 .start_button:hover {
@@ -78,6 +86,23 @@ img {
   transform: translateY(3px);
 }
 
+.display_header {
+  display: flex; 
+  flex-direction: column; 
+  align-content: center;
+  margin-left: 5%; 
+}
+
+.display_header h1 {
+  font-size: 38px; 
+}
+
+.display_logo {
+  align-self: center; 
+  margin-top: 10%; 
+  width: 60%; 
+}
+
 .input_form {
   display: flex; 
   flex-direction: column; 
@@ -85,29 +110,61 @@ img {
   margin-left: 5%;
 }
 
+.input_form label {
+  margin-bottom: 3%; 
+}
+
+select {
+  font-size: 12px; 
+  cursor: pointer; 
+}
+
 .input_text {
   resize: none; 
+  font-size: 12px; 
   width: 100%; 
   margin-top: 5%; 
   margin-bottom: 1%; 
 }
 
-.buttons {
-  padding: 0% 5%; 
+.translate_button {
+  border: 1px solid #8C8B8B;
+  border-radius: 15px; 
+  font-size: 14px; 
+  padding: 2% 5%; 
+  transition: background-color .1s linear;
+  cursor: pointer; 
+}
+
+.translate_button:hover {
+  background-color: #8C8B8B;
+}
+
+.translate_button:active {
+  transform: translateY(3px);
+}
+
+.definitions {
+  margin-left: 5%; 
+  line-height: 1.6; 
 }
 
 .container {
+  /* border: 1px solid black;  */
   display: flex;
   flex-direction: column; 
-  margin-top: 10%; 
+  margin-top: 5%; 
+  margin-bottom: 25%; 
 }
 
 .container_yandex {
+  /* border: 1px solid black;  */
   margin-top: 10%; 
 }
 
 .translate_box {
-  border: 1px solid black; 
+  border: 1px solid #8C8B8B; 
+  height: 150px;
   margin-top: 5%;
   margin-right: 5%;
   margin-left: 5%;  
@@ -123,27 +180,27 @@ img {
   margin-left: 5%;  
 }
 
-.submit {
-  margin: 5%; 
-}
-
 footer {
   display: flex;
   justify-content: center; 
   position: relative;
-  top: 15%; 
+  /* top: 15%;  */
   width: 100%; 
-  border-top: 1px solid black; 
+  border-top: 1px solid #8C8B8B; 
   margin-top: 3%;   
   margin-bottom: 0;  
 }
 
 .about_link {
   text-decoration: none; 
+  color: black; 
   display: inline-block;
   margin-top: 5%; 
   margin-bottom: 5%; 
-  
+}
+
+.about_link:active {
+  color: purple; 
 }
 
 @media only screen and (min-width: 768px) {
