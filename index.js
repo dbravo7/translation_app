@@ -1,7 +1,7 @@
 "use strict";
 
 function handleSubmitText() {
-  $('#js-submit').click(event => {
+  $('#js-submit').submit(event => {
     event.preventDefault();
     const text = $('#js-input-text').val();
     const target_code = $('#js-target-languages').val();

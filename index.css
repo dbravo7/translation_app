@@ -129,6 +129,7 @@ select {
 
 .translate_button {
   border: 1px solid #8C8B8B;
+  background-color: #A6A1A1; 
   border-radius: 15px; 
   font-size: 14px; 
   padding: 2% 5%; 
@@ -163,7 +164,9 @@ select {
 }
 
 .translate_box {
-  border: 1px solid #8C8B8B; 
+  border: 2px solid #8C8B8B; 
+  background-color: #F2F2F2;
+  /* border */
   height: 150px;
   margin-top: 5%;
   margin-right: 5%;
