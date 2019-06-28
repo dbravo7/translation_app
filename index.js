@@ -1,18 +1,16 @@
 "use strict";
 
 function handleSubmitText() {
-  $('#js-submit').submit(event => {
+  $('form').submit(event => {
     event.preventDefault();
     const text = $('#js-input-text').val();
     const target_code = $('#js-target-languages').val();
 
     if (text) {
       // Gets translated texts from respective APIs and displays them
-      setTimeout(function() {
-        getGoogleTranslate(text, target_code);
-        getYandexTranslate(text, target_code);}, 500);
-    }
-  });
+      getGoogleTranslate(text, target_code);
+      getYandexTranslate(text, target_code);}
+    });
 }
 
 function getSourceCode() {
@@ -121,7 +119,7 @@ function linkedTranslation(text, lang) {
 }
 
 function definitionsAvailable() {
-  $('.definitions').text('Definitions are available. Click on a word to see its definition in a separate tab');
+  $('.definitions').text('Click on a word to see its definition in a separate tab');
 }
 
 function definitionsNotAvailable() {

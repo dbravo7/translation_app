@@ -164,9 +164,9 @@ select {
 }
 
 .translate_box {
-  border: 2px solid #8C8B8B; 
-  background-color: #F2F2F2;
-  /* border */
+  /* border: 2px solid #8C8B8B;  */
+  background-color: #FFFFFF;
+  box-shadow: 2px 2px #8C8B8B; 
   height: 150px;
   margin-top: 5%;
   margin-right: 5%;
@@ -187,7 +187,6 @@ footer {
   display: flex;
   justify-content: center; 
   position: relative;
-  /* top: 15%;  */
   width: 100%; 
   border-top: 1px solid #8C8B8B; 
   margin-top: 3%;   
