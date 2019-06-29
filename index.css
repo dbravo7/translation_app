@@ -128,7 +128,8 @@ select {
 .translate_button {
   margin-right: 30%;
   margin-left: 30%;  
-  margin-top: 3%; 
+  margin-top: 5%; 
+  margin-bottom: 5%; 
   border: 1px solid #8C8B8B;
   background-color: #F2F2F2; 
   border-radius: 15px; 
@@ -164,8 +165,8 @@ select {
 }
 
 .definitions {
-  margin-top: 8%; 
-  margin-bottom: 0; 
+  margin-top: 10%; 
+  margin-bottom: 5%; 
   margin-left: 5%; 
   margin-right: 5%; 
   line-height: 1.6; 
@@ -176,15 +177,18 @@ select {
 }
 
 .container {
-  /* border: 1px solid black;  */
   display: flex;
   flex-direction: column; 
   margin-top: 5%; 
   margin-bottom: 25%; 
 }
 
+.container_yandex, .container_google {
+  margin-right: 5%;
+  margin-left: 5%;  
+}
+
 .container_yandex {
-  /* border: 1px solid black;  */
   margin-top: 10%; 
 }
 
@@ -193,8 +197,6 @@ select {
   box-shadow: 2px 2px #8C8B8B; 
   height: 150px;
   margin-top: 5%;
-  margin-right: 5%;
-  margin-left: 5%;  
 }
 
 .translation {
@@ -250,8 +252,27 @@ footer {
     width: 50%; 
   }
 
+  #available, #unavailable {
+    margin-top: 8%;   
+  }
+
+  .translate_button {
+    margin-bottom: 3%;
+  }
+  /* #available, #unavailable {
+  line-height: 0; 
+  float: left; 
+  margin-top: 10%; 
+  margin-right: 4%; 
+  color: #8C6E7D;  
+  font-size: 45px;  */
 }
+
 @media only screen and (min-width: 425px) {
+
+  .display_logo {
+    width: 50%; 
+  }
 
   #main_page div {
     margin-right: 30%; 
@@ -260,7 +281,15 @@ footer {
 
   .input_text {
     font-size: 16px; 
-    height: 150px; 
+    height: 100px; 
+  }
+
+  #available, #unavailable {
+    margin-top: 7%; 
+  }
+
+  .container {
+    margin-top: 0%; 
   }
 
   .translation {
@@ -268,7 +297,7 @@ footer {
   }
 }
 
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 495px) {
 
   .display_header {
     flex-direction: row; 
@@ -277,6 +306,7 @@ footer {
     margin-left: 0%; 
     border-bottom: 1px solid #F2F2F2;
     background-color: #F2F2F2;
+    border-bottom: 2px solid #8C6E7D;
   }
 
   .display_logo {
@@ -290,6 +320,29 @@ footer {
   .display_header h1 {
     margin-top: 5%; 
     margin-left: 5%; 
+  }
+
+  .input_form {
+    margin-right: 8%; 
+    margin-left: 8%; 
+  }
+
+  .definitions {
+    margin-right: 15%; 
+    margin-left: 15%;
+  }
+
+  .container {
+    margin-top: 3%; 
+  }
+  
+  .container_yandex, .container_google {
+    margin-right: 8%;
+    margin-left: 8%; 
+  }
+
+  .translate_link {
+    margin-left: 0; 
   }
 }
 
