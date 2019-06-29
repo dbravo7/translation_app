@@ -234,9 +234,18 @@ footer {
     margin-right: 30%; 
     margin-left: 30%; 
   }
+
+  .input_text {
+    font-size: 16px; 
+    height: 150px; 
+  }
+
+  .translation {
+    font-size: 16px; 
+  }
 }
 
-@media only screen and (min-width: 615px) {
+@media only screen and (min-width: 600px) {
 
   #main_page div {
     margin-right: 35%; 
@@ -250,6 +259,42 @@ footer {
   #main_page p {
     margin-bottom: 10%; 
   }
+
+  .display_header {
+    flex-direction: row; 
+    justify-content: center; 
+    margin-bottom: 10%; 
+    border-bottom: 1px solid #8C8B8B;
+  }
+
+  .display_logo {
+    align-self: inherit;
+    margin-top: 8%; 
+    width: 35%; 
+  }
+
+  .display_header h1 {
+    margin-top: 10%; 
+    margin-left: 5%; 
+  }
+
+  /* .display_header {
+  display: flex; 
+  flex-direction: column; 
+  align-content: center;
+  margin-left: 5%; 
+}
+
+.display_header h1 {
+  font-size: 38px; 
+}
+
+.display_logo {
+  align-self: center; 
+  margin-top: 10%; 
+  width: 60%; 
+} */
+
 }
 
 @media only screen and (min-width: 768px) {
