@@ -120,11 +120,13 @@ function linkedTranslation(text, lang) {
 }
 
 function definitionsAvailable() {
-  $('.definitions').text('Click on a word to see its definition in a separate tab');
+  $('#js-unavailable').addClass('hidden');
+  $('#js-available').removeClass('hidden');
 }
 
 function definitionsNotAvailable() {
-  $('.definitions').text('Definitions are not available for this language pair');
+  $('#js-available').addClass('hidden');
+  $('#js-unavailable').removeClass('hidden');
 }
 
 $(getSourceCode);

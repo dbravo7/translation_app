@@ -53,7 +53,7 @@ img {
 }
 
 .duo {
-  color: #F2F2F2;
+  color: #8C6E7D;
   text-shadow: 2px 2px black;
 }
 
@@ -76,7 +76,7 @@ img {
 }
 
 .start_button:hover {
-  background-color: #8C8B8B;
+  background-color: #8C6E7D;
 }
 
 .start_button:active {
@@ -113,6 +113,7 @@ img {
 
 select {
   font-size: 12px; 
+  margin-bottom: 3%; 
   cursor: pointer; 
 }
 
@@ -129,7 +130,7 @@ select {
   margin-left: 30%;  
   margin-top: 3%; 
   border: 1px solid #8C8B8B;
-  background-color: #A6A1A1; 
+  background-color: #F2F2F2; 
   border-radius: 15px; 
   font-size: 12px; 
   padding: 2% 5%; 
@@ -138,17 +139,40 @@ select {
 }
 
 .translate_button:hover {
-  background-color: #8C8B8B;
+  background-color: #8C6E7D;
 }
 
 .translate_button:active {
   transform: translateY(3px);
 }
 
+#available, #unavailable {
+  line-height: 0; 
+  float: left; 
+  margin-top: 10%; 
+  margin-right: 4%; 
+  color: #8C6E7D;  
+  font-size: 45px; 
+}
+
+#available {
+  color: #8C6E7D;
+}
+
+#unavailable {
+  color: #8C8A8B;
+}
+
 .definitions {
+  margin-top: 8%; 
+  margin-bottom: 0; 
   margin-left: 5%; 
   margin-right: 5%; 
   line-height: 1.6; 
+}
+
+.hidden {
+  display: none; 
 }
 
 .container {
@@ -202,16 +226,15 @@ footer {
   justify-content: center; 
   position: relative;
   width: 100%; 
-  border-top: 1px solid #8C8B8B; 
   margin-top: 3%;   
   margin-bottom: 0;  
-  background-color: #0D0000;
+  background-color: #8C6E7D;
 }
 
 .about_link {
   font-size: 16px; 
   text-decoration: none; 
-  color: #8C8B8B; 
+  color: #0C0000; 
   display: inline-block;
   margin-top: 5%; 
   margin-bottom: 5%; 
@@ -245,6 +268,31 @@ footer {
   }
 }
 
+@media only screen and (min-width: 550px) {
+
+  .display_header {
+    flex-direction: row; 
+    justify-content: flex-start; 
+    margin-bottom: 10%; 
+    margin-left: 0%; 
+    border-bottom: 1px solid #F2F2F2;
+    background-color: #F2F2F2;
+  }
+
+  .display_logo {
+    align-self: inherit;
+    margin-top: 5%; 
+    margin-left: 3%; 
+    margin-bottom: 3%; 
+    width: 25%; 
+  }
+
+  .display_header h1 {
+    margin-top: 5%; 
+    margin-left: 5%; 
+  }
+}
+
 @media only screen and (min-width: 600px) {
 
   #main_page div {
@@ -260,41 +308,22 @@ footer {
     margin-bottom: 10%; 
   }
 
-  .display_header {
-    flex-direction: row; 
-    justify-content: center; 
-    margin-bottom: 10%; 
-    border-bottom: 1px solid #8C8B8B;
+  .translate_button {
+    margin-right: 35%;
+    margin-left: 35%; 
   }
-
-  .display_logo {
-    align-self: inherit;
-    margin-top: 8%; 
-    width: 35%; 
-  }
-
-  .display_header h1 {
-    margin-top: 10%; 
-    margin-left: 5%; 
-  }
-
-  /* .display_header {
-  display: flex; 
-  flex-direction: column; 
-  align-content: center;
-  margin-left: 5%; 
-}
-
-.display_header h1 {
-  font-size: 38px; 
-}
-
-.display_logo {
-  align-self: center; 
-  margin-top: 10%; 
-  width: 60%; 
+  /* translate_button {
+  margin-right: 30%;
+  margin-left: 30%;  
+  margin-top: 3%; 
+  border: 1px solid #8C8B8B;
+  background-color: #A6A1A1; 
+  border-radius: 15px; 
+  font-size: 12px; 
+  padding: 2% 5%; 
+  transition: background-color .1s linear;
+  cursor: pointer; 
 } */
-
 }
 
 @media only screen and (min-width: 768px) {

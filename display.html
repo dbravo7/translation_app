@@ -125,9 +125,13 @@
         <button type="submit" id="js-submit" class="translate_button">Translate</button>
       </form>
 
-      <p class="definitions"></p>
+      <p id="js-available" class="definitions hidden">
+        <span id="available">&#10043;</span> Click on a word to see its definition in a separate tab</p>
+
+      <p id="js-unavailable" class="definitions hidden">
+        <span id="unavailable">&#10043;</span>Definitions are not available for this language pair</p>
       
-      <div class="container">
+      <div id="js-first-container" class="container">
         <div class="container_google">
           <div id="google" class="translate_box">
             <p id="js-google-translate" class="translation"></p>
