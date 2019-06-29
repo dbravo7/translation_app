@@ -1,6 +1,3 @@
-/* font-family: 'Spectral', serif;
-font-family: 'Karla', sans-serif; */
-
 * {
   box-sizing: border-box; 
 }
@@ -128,10 +125,13 @@ select {
 }
 
 .translate_button {
+  margin-right: 30%;
+  margin-left: 30%;  
+  margin-top: 3%; 
   border: 1px solid #8C8B8B;
   background-color: #A6A1A1; 
   border-radius: 15px; 
-  font-size: 14px; 
+  font-size: 12px; 
   padding: 2% 5%; 
   transition: background-color .1s linear;
   cursor: pointer; 
@@ -147,6 +147,7 @@ select {
 
 .definitions {
   margin-left: 5%; 
+  margin-right: 5%; 
   line-height: 1.6; 
 }
 
@@ -164,7 +165,6 @@ select {
 }
 
 .translate_box {
-  /* border: 2px solid #8C8B8B;  */
   background-color: #FFFFFF;
   box-shadow: 2px 2px #8C8B8B; 
   height: 150px;
@@ -175,6 +175,20 @@ select {
 
 .translation {
   padding: 3%; 
+}
+
+.linked_word {
+  text-decoration: none; 
+  color: black; 
+  transition: background-color .2s linear; 
+}
+
+.linked_word:hover {
+  background-color: yellow; 
+}
+
+.linked_word:visited {
+  color: purple; 
 }
 
 .translate_link {
@@ -191,11 +205,13 @@ footer {
   border-top: 1px solid #8C8B8B; 
   margin-top: 3%;   
   margin-bottom: 0;  
+  background-color: #0D0000;
 }
 
 .about_link {
+  font-size: 16px; 
   text-decoration: none; 
-  color: black; 
+  color: #8C8B8B; 
   display: inline-block;
   margin-top: 5%; 
   margin-bottom: 5%; 
@@ -205,53 +221,82 @@ footer {
   color: purple; 
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 375px) {
+
+  select {
+    width: 50%; 
+  }
+
+}
+@media only screen and (min-width: 425px) {
+
+  #main_page div {
+    margin-right: 30%; 
+    margin-left: 30%; 
+  }
+}
+
+@media only screen and (min-width: 615px) {
+
+  #main_page div {
+    margin-right: 35%; 
+    margin-left: 35%; 
+  }
+
+  .main_header h1 {
+    font-size: 42px; 
+  }
 
   #main_page p {
-    margin-bottom: 15%;
+    margin-bottom: 10%; 
   }
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
 
   #main_page div {
     margin-right: 40%; 
     margin-left: 40%; 
   }
 
-  .input_form {
-    flex-direction: row; 
-    flex-wrap: wrap; 
-  }
-
-  .languages {
-    border: 1px solid black; 
-    width: 25%; 
-    margin-right: 10%; 
-    margin-left: 3%; 
-  }
-
-  .input_text {
-    margin-top: 0%; 
-    margin-right: 150px; 
-    height: 100px; 
-  }
-
-  .container {
-    flex-direction: row; 
-    justify-content: space-around; 
-    height: 300px;  
-  }
-
-  .container_yandex, .container_google {
-    margin: 0; 
-    display: inline-block;
-    height: 100%; 
-    width: 40%;  
-  }
-
-  .translate_box {
-    height: 80%; 
-  }
-
-  .footer {
-    top: 10%; 
+   #main_page p {
+    margin-right: 10%;
+    margin-left: 10%; 
+    margin-bottom: 5%; 
   }
 }
+
+@media only screen and (min-width: 1250px) {
+
+  #main_page p {
+    margin-right: 18%;
+    margin-left: 18%; 
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+
+  #main_page p {
+    margin-right: 22%;
+    margin-left: 22%; 
+  }
+}
+
+@media only screen and (min-width: 1900px) {
+
+   #main_page p {
+    margin-right: 28%;
+    margin-left: 28%; 
+    margin-bottom: 3%; 
+  }
+
+  #main_page div {
+    margin-right: 45%; 
+    margin-left: 45%; 
+  }
+}
+ 

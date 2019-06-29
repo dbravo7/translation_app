@@ -16,7 +16,8 @@ function handleSubmitText() {
 function getSourceCode() {
   $('#js-input-text').on('input', event => {
     let text = $('#js-input-text').val();
-    if (text) {
+
+    if (/\S/.test(text)) {
       const key = config.Y_KEY; 
       const url = `https://translate.yandex.net/api/v1.5/tr.json/detect?key=${key}&text=${text}`;
       fetch(url)
@@ -126,8 +127,8 @@ function definitionsNotAvailable() {
   $('.definitions').text('Definitions are not available for this language pair');
 }
 
-$(handleSubmitText); 
 $(getSourceCode);
+$(handleSubmitText); 
 
 function dictLanguages(lang) {
   const languages = [
