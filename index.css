@@ -228,12 +228,25 @@ select {
 
 footer {
   display: flex;
-  justify-content: center; 
+  justify-content: space-around; 
   position: relative;
   width: 100%; 
   margin-top: 3%;   
   margin-bottom: 0;  
   background-color: #8C6E7D;
+}
+
+.icons {
+  border: 1px solid black; 
+  margin-left: 0; 
+  list-style: none; 
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-around;
+}
+
+.fab {
+  font-size: 16px; 
 }
 
 .about_link {
@@ -394,8 +407,6 @@ footer {
   .translate_link {
     font-size: 16px; 
   }
-
-
 }
 
 @media only screen and (min-width: 1024px) {

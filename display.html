@@ -7,19 +7,15 @@
     <meta name="description" content="Provides parallel translation of dozens of language pairs">
     <title>DuoTranslate</title>
     <link href="https://fonts.googleapis.com/css?family=Karla|Spectral&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+      integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' 
+      crossorigin='anonymous'>
     <link rel="stylesheet" type="text/css" href="index.css">
-    <script async defer crossorigin="anonymous"
-      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
 
   <body>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
-      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
-
     <header class="display_header">
       <div class="display_logo">
         <img src="images/languages-1200x400-c.png" alt="map of world">
@@ -159,17 +155,24 @@
       </div>
     </main>
     <footer>
-      <ul>
+      <ul class="icons">
         <li>
-          <script type="IN/Share" data-url="https://dbravo7.github.io/translation_app/display.html"></script>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=dbravo7.github.io/translation_app/display.html" target="_blank"
+            title="Share on LinkedIn">
+            <i class='fab fa-linkedin' style='font-size:24px'></i>
+          </a>
         </li>
         <li>
           <div class="fb-share-button" data-href="https://dbravo7.github.io/translation_app/display.html" data-layout="button_count" data-size="small">
-            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdbravo7.github.io%2Ftranslation_app%2Fdisplay.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdbravo7.github.io%2Ftranslation_app%2Fdisplay.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+              <i class='fab fa-facebook' style='font-size:24px'></i>
+            </a>
           </div>
         </li>
         <li>
-          <a href="https://twitter.com/tweet?text=DuoTranslate%20https://dbravo7.github.io/translation_app/display.html%20#translate" class="twitter-share-button" data-show-count="false">Tweet</a>
+          <a href="https://twitter.com/intent/tweet?text=DuoTranslate%20https://dbravo7.github.io/translation_app/display.html%20#translate"  data-show-count="false">
+            <i class='fab fa-twitter-square' style='font-size:36px'></i>
+          </a>  
         </li>
       </ul>
       <a href="index.html" class="about_link">About</a>
