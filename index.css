@@ -16,6 +16,9 @@ h1, h2 {
 main {
   display: flex;
   flex-direction: column;  
+}
+
+main, footer {
   font-family: 'Karla', sans-serif; 
 }
 
@@ -259,13 +262,6 @@ footer {
   .translate_button {
     margin-bottom: 3%;
   }
-  /* #available, #unavailable {
-  line-height: 0; 
-  float: left; 
-  margin-top: 10%; 
-  margin-right: 4%; 
-  color: #8C6E7D;  
-  font-size: 45px;  */
 }
 
 @media only screen and (min-width: 425px) {
@@ -328,14 +324,20 @@ footer {
   }
 
   .definitions {
+    margin-top: 8%; 
+    margin-bottom: 3%; 
     margin-right: 15%; 
-    margin-left: 15%;
+    margin-left: 10%;
+  }
+
+  .definitions span {
+    margin-bottom: 1%; 
   }
 
   .container {
     margin-top: 3%; 
   }
-  
+
   .container_yandex, .container_google {
     margin-right: 8%;
     margin-left: 8%; 
@@ -365,6 +367,10 @@ footer {
     margin-right: 35%;
     margin-left: 35%; 
   }
+
+  #available, #unavailable {
+    margin-top: 3%; 
+  }
   /* translate_button {
   margin-right: 30%;
   margin-left: 30%;  
@@ -380,6 +386,15 @@ footer {
 }
 
 @media only screen and (min-width: 768px) {
+ 
+  .display_header h1 {
+    margin-top: 7%; 
+  }
+
+  .translate_link {
+    font-size: 16px; 
+  }
+
 
 }
 
