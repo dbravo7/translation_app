@@ -3,15 +3,23 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" coxntent="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Provides parallel translation of dozens of language pairs">
     <title>DuoTranslate</title>
     <link href="https://fonts.googleapis.com/css?family=Karla|Spectral&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <script async defer crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
 
   <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
+
     <header class="display_header">
       <div class="display_logo">
         <img src="images/languages-1200x400-c.png" alt="map of world">
@@ -151,6 +159,19 @@
       </div>
     </main>
     <footer>
+      <ul>
+        <li>
+          <script type="IN/Share" data-url="https://dbravo7.github.io/translation_app/display.html"></script>
+        </li>
+        <li>
+          <div class="fb-share-button" data-href="https://dbravo7.github.io/translation_app/display.html" data-layout="button_count" data-size="small">
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdbravo7.github.io%2Ftranslation_app%2Fdisplay.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+          </div>
+        </li>
+        <li>
+          <a href="https://twitter.com/tweet?text=DuoTranslate%20https://dbravo7.github.io/translation_app/display.html%20#translate" class="twitter-share-button" data-show-count="false">Tweet</a>
+        </li>
+      </ul>
       <a href="index.html" class="about_link">About</a>
     </footer>
     <script type="text/javascript" src="config.js"></script>
