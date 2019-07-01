@@ -17,7 +17,7 @@ function getSourceCode() {
   $('#js-input-text').on('input', event => {
     let text = $('#js-input-text').val();
 
-    if (/\S/.test(text)) {
+    if (/\S/.test(text) && text !== ";") {
       const key = config.Y_KEY; 
       const url = `https://translate.yandex.net/api/v1.5/tr.json/detect?key=${key}&text=${text}`;
       fetch(url)
