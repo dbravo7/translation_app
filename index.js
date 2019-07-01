@@ -31,7 +31,9 @@ function getSourceCode() {
         .catch(error => {
           alert(`Something went wrong: ${error.message}`);
       });
-    } 
+    } else {
+      $('#js-auto-detect').empty();
+    }
   });
 }
 
