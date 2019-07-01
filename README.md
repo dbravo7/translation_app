@@ -11,4 +11,4 @@ A translation app that makes calls to two APIs: google translate and Yandex tran
 
 ![display page of app](images/display_page.png "Can view parallel translations")
 
-![highlighted word](images/highlighted_word.png "For many translations to English, one can click on a translated word and see its various definitsion and example sentences")
+![highlighted word](images/highlighted_word.png "For many translations to English, one can click on a translated word and see its various definitions and example sentences")
