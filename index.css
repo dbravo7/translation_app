@@ -5,8 +5,13 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;  
   background-color: #D9D9D9; 
+}
+
+#display_page {
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh; 
 }
 
 h1, h2 {
@@ -15,7 +20,8 @@ h1, h2 {
 
 main {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column; 
+  flex-grow: 1;  
 }
 
 main, footer {
@@ -24,8 +30,7 @@ main, footer {
 
 #main_page {
   padding: 5%; 
-  height: 100%; 
-  justify-content: center; 
+  justify-content: space-evenly; 
 }
 
 .logo {
@@ -42,7 +47,7 @@ img {
 
 .main_header { 
   text-align: center; 
-  margin-top: 5%; 
+  margin-top: 3%; 
 }
 
 .main_header h1{
@@ -52,7 +57,7 @@ img {
 #main_page p {
   line-height: 1.6;
   text-align: center; 
-  margin-bottom: 20%; 
+  margin-bottom: 12%; 
 }
 
 .duo {
@@ -107,6 +112,7 @@ img {
 .input_form {
   display: flex; 
   flex-direction: column; 
+  position: relative; 
   margin-right: 5%; 
   margin-left: 5%;
 }
@@ -132,8 +138,7 @@ select {
 .translate_button {
   align-self: center; 
   width: 30%; 
-  margin-top: 5%; 
-  /* box-shadow: 0px 0px 2.5px 2.5px #8C8B8B inset;  */
+  margin-top: 5%;  
   border: 1px solid #8C8B8B;
   background-color: #F2F2F2; 
   border-radius: 15px; 
@@ -230,10 +235,6 @@ select {
 
 footer {
   display: flex;
-  position: relative;
-  width: 100%; 
-  margin-top: 3%;   
-  margin-bottom: 0;  
   background-color: #8C6E7D;
 }
 
@@ -257,7 +258,7 @@ ul:first-child {
 
 .fab { 
   font-size: 28px; 
-  color:  #434142; 
+  color: #434142; 
   width: 100%; 
   transition: all .1s linear; 
 }
@@ -301,13 +302,13 @@ ul:first-child {
 
 @media only screen and (min-width: 425px) {
 
-  .display_logo {
-    width: 50%; 
-  }
-
   #main_page div {
     margin-right: 30%; 
     margin-left: 30%; 
+  }
+
+  .display_logo {
+    width: 50%; 
   }
 
   select {
@@ -329,6 +330,7 @@ ul:first-child {
 
   .container {
     margin-top: 0%; 
+    margin-bottom: 20%; 
   }
 
   .translation {
@@ -437,24 +439,34 @@ ul:first-child {
     margin-top: 3%; 
   }
 
+  .container {
+    margin-bottom: 15%; 
+  }
+
+  .container_yandex {
+    margin-top: 6%; 
+  }
+
   .icons {
     margin-right: 26%; 
   }
 }
 
 @media only screen and (min-width: 768px) {
-  
+
+  .display_logo {
+    width: 20%; 
+    margin-top: 2%; 
+    margin-bottom: 1%; 
+  }
+
   .display_header h1 {
-    margin-top: 7%; 
+    margin-top: 3%; 
+    margin-left: 2%; 
   }
 
-  .input_form {
-    margin-top: 0; 
-    margin-bottom: -5%; 
-  }
-
-  .input_form label {
-    margin-bottom: 2%; 
+  .input_form { 
+    margin-top: -1%; 
   }
 
   select {
@@ -467,20 +479,29 @@ ul:first-child {
     margin-bottom: 0; 
   }
 
+  .input_text { 
+   margin-top: 2%; 
+  }
+
   .form_box p {
     align-self: center; 
     margin-bottom: 0; 
     margin-right: 15%; 
-    
+    padding-bottom: 1.2%
   }
 
   .translate_button {
-    position: relative; 
-    bottom: 55px; 
-    right: 255px;
+    position: absolute;  
+    right: 80%;
+    bottom: 0%; 
     width: 15%;  
     padding: 1% 3%; 
     margin-bottom: 0; 
+  }
+
+  .definitions {
+    margin-top: 2%; 
+    margin-bottom: 0%; 
   }
 
   .container {
@@ -492,11 +513,6 @@ ul:first-child {
     margin-top: 3%; 
   }
 
-  .definitions {
-    margin-top: 2%; 
-    margin-bottom: 0%; 
-  }
-
   #available, #unavailable {
     margin-top: 2.5%; 
   }
@@ -505,21 +521,17 @@ ul:first-child {
     font-size: 16px; 
   }
 
-  .container {
-    margin-bottom: 10%; 
-  }
-
   ul:first-child {
     margin-left: 10%; 
   } 
+
+   .about_link {
+    margin-top: 1%; 
+    margin-bottom: 1%; 
+  }
 }
 
 @media only screen and (min-width: 900px) {
-
-  .translate_button {
-    bottom: 62px;
-    right: 300px;  
-  }
 
   .input_form label {
     margin-bottom: 1%; 
@@ -532,6 +544,11 @@ ul:first-child {
 
   .form_box p {
     margin-right: 20%; 
+  }
+
+  #available, #unavailable {
+    margin-top: 2%; 
+    margin-right: 1%; 
   }
 }
 
@@ -549,15 +566,19 @@ ul:first-child {
   }
 
   .display_logo {
-    margin-top: 3%; 
+    margin-top: 1.3%; 
     margin-bottom: 1%; 
     margin-left: 5%; 
     width: 15%; 
   }
 
   .display_header h1 {
-    margin-top: 3.5%; 
+    margin-top: 1.8%; 
     margin-left: 2%; 
+  }
+
+  .input_form {
+    margin-top: -2%; 
   }
 
   .input_text {
@@ -565,8 +586,7 @@ ul:first-child {
   }
 
   .translate_button {
-    bottom: 66px; 
-    right: 325px;
+    right: 83%; 
     width: 15%;  
     padding: 1% 3%;  
   }
@@ -576,9 +596,32 @@ ul:first-child {
     margin-right: 1%; 
   }
 
-  .fab {
-    font-size: 40px; 
+  .container { 
+    margin-top: 2%;
+    flex-direction: row; 
   }
+
+  .container_google, .container_yandex {
+    width: 50%; 
+    height: 14em; 
+  }
+
+  .container_google {
+    margin-right: 2%; 
+  }
+
+  .container_yandex {
+    margin-top: 0;
+    margin-left: 2%; 
+  }
+
+  .translate_box {
+    height: 12em;
+  }
+
+  ul:first-child {
+    margin-left: 11%; 
+  } 
 
   .about_link {
     font-size: 20px; 
@@ -591,17 +634,85 @@ ul:first-child {
     margin-right: 18%;
     margin-left: 18%; 
   }
+
+  .display_header h1 {
+    margin-top: 2.3%; 
+    margin-left: .8%; 
+  }
+
+  .input_form {
+    margin-top: -1%; 
+  }
+
+  select {
+    width: 15%;
+    margin-left: 1%;  
+  }
+
+  .translate_button {
+    right: 85%; 
+    width: 12%; 
+  }
+
+  .definitions {
+    margin-top: 3%; 
+  }
+
+  #available, #unavailable {
+    margin-top: 1.3%; 
+  }
+
+  .container_google, .container_yandex {
+    height: 14em; 
+  }
+
+  .translate_box {
+    height: 12em; 
+  }
+
+  footer {
+    margin-top: -1.2%;
+  }
+
+  ul:first-child {
+    margin-left: 13%; 
+  }
 }
 
 @media only screen and (min-width: 1400px) {
 
+  
   #main_page p {
     margin-right: 22%;
     margin-left: 22%; 
   }
+
+  .display_logo {
+    width: 10%; 
+  }
+
+  .display_header h1 {
+    margin-top: 1.8%; 
+  }
+
+  .input_form {
+    margin-top: -2%; 
+  }
+
+  .translate_button {
+    width: 12%; 
+  }
+
+  footer {
+    margin-top: 0; 
+  }
+
+  ul:first-child {
+    margin-left: 14.5%; 
+  }
 }
 
-@media only screen and (min-width: 1900px) {
+@media only screen and (min-width: 1800px) {
 
    #main_page p {
     margin-right: 28%;
@@ -613,5 +724,28 @@ ul:first-child {
     margin-right: 45%; 
     margin-left: 45%; 
   }
+
+  .translate_button {
+    right: 88%; 
+    width: 10%;  
+    padding-top: 1%;
+    padding-bottom: 1%; 
+    border-radius: 30px; 
+  }
+
+  .container_google, .container_yandex {
+    border: 1px solid black; 
+    height: 25em; 
+    margin-bottom: 10%;
+  }
+
+  .translate_box {
+    height: 20em; 
+  }
+
+  ul:first-child {
+    margin-left: 17.5%; 
+  } 
+  
 }
  
