@@ -30,7 +30,7 @@ main, footer {
 
 #main_page {
   padding: 5%; 
-  justify-content: space-evenly; 
+  justify-content: center; 
 }
 
 .logo {
@@ -204,7 +204,9 @@ select {
 
 .translate_box {
   background-color: #FFFFFF;
-  box-shadow: 2px 2px #8C8B8B; 
+  box-shadow: 2px 2px #8C8B8B;
+  margin: 0 auto; 
+  overflow: auto;  
   height: 150px;
   margin-top: 5%;
 }
@@ -734,7 +736,6 @@ ul:first-child {
   }
 
   .container_google, .container_yandex {
-    border: 1px solid black; 
     height: 25em; 
     margin-bottom: 10%;
   }

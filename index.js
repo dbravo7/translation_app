@@ -13,6 +13,7 @@ function handleSubmitText() {
     });
 }
 
+// Evaluates text in input to display name of language in `auto detect`
 function getSourceCode() {
   $('#js-input-text').on('input', event => {
     let text = $('#js-input-text').val();
@@ -111,6 +112,7 @@ function displayGoogleTranslate(google, lang) {
   }
 }
 
+// creates linked words to dictionary to populate translation for valid language pairs
 function linkedTranslation(text, lang) {
   let text_arr = text.split(" ");
   let new_arr = [];
@@ -134,6 +136,7 @@ function definitionsNotAvailable() {
 $(getSourceCode);
 $(handleSubmitText); 
 
+// Dictionary available for translating the following languages to English
 function dictLanguages(lang) {
   const languages = [
   "English",
@@ -165,6 +168,7 @@ function dictLanguages(lang) {
   return languages.includes(lang); 
 }
 
+// Search list to display correct language in `auto detect`
 function displaySourceLang(source) {
   const languages = {
     az: "Azerbaijan",
